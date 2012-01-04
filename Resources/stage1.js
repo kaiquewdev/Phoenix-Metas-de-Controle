@@ -21,6 +21,14 @@ var Header = makeHeader({
 			color: '#1A6E73'
 } });
 
+var Body = makeBody({
+	view: {
+		top: 60,
+		width: 'auto',
+		height: 'auto'
+	}
+});
+
 var setOptions = [
 	'Doença cardiovascular', 
 	'3 ou mais fatores de risco', 
@@ -29,20 +37,51 @@ var setOptions = [
 
 var Description = makeDescriptionHeader({
 	view: {
-		top: 70,
+		top: 10,
 		backgroundColor: '#fff',
-		width: 500,
-		height: 120,
-		borderRadius: 4
+		width: 280,
+		height: 115,
+		borderRadius: 4,
+		borderWidth: 2,
+		borderColor: '#dedede'
+	},
+	tView: {
+		top: 5,
+		width: 'auto',
+		height: 40
+	},
+	tTitle: {
+		text: 'Fator:',
+		font: {fontSize: 18},
+		color: '#1A6E73'
+	},
+	pView: {
+		top: 50,
+		width: 'auto',
+		height: 50
 	},
 	sets: setOptions
 });
+
+//var Profile = makeProfileContent({
+//	view: {},
+//});
+
+// Body content part - Start
+
+// Add description head to body
+Body.add(Description);
+
+// Add profile structure to body
+//Body.add(Profile);
+
+// Body content part - End
 
 // Add the default header in the window
 win.add(Header);
 
 // Add the default description section
-win.add(Description);
+win.add(Body);
 
 // Open the main window
 win.open();

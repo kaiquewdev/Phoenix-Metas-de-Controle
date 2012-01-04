@@ -42,9 +42,6 @@ function makeDescriptionHeader ( options ) {
 			// Add title to the view
 			titleView.add(titleLabel);
 
-			// View to picker
-			pickerView.add(picker);
-
 			// Add view of title to the description view
 			frame.add(titleView)
 			// Add picker in the view
@@ -60,3 +57,4 @@ function makeProfileContent ( options ) {
 		
 	}
 }
+;
