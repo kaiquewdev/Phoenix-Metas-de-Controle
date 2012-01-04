@@ -66,6 +66,28 @@ function makeProfileContent ( options ) {
 	}
 }
 
+function makeProfileLine ( options ) {
+	// Make a line in the profile line
+	var profileHeader = Ti.UI.createView( options.pHeader ),
+		profileHeaderLabel = Ti.UI.createLabel( options.pHeaderLabel),
+		leftIndicator = Ti.UI.createView( options.lIndicator ),
+		leftIndicatorLabel = Ti.UI.createLabel( options.liLabel ),
+		rightIndicatorLabel = Ti.UI.createLabel( options.riLabel );
+
+	// Add label to header of profile
+	profileHeader.add(profileHeaderLabel);
+
+	// Add label to left indicator
+	leftIndicator.add(leftIndicatorLabel);
+	leftIndicator.add(rightIndicatorLabel);
+
+	// Add indicator to profile header
+	profileHeader.add(leftIndicator);
+
+	// Add profile header in the main view
+	return profileHeader;
+}
+
 function getStageSection ( section ) {
 	if ( typeof section !== undefined ) {
 		var sections = {

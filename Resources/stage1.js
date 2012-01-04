@@ -6,23 +6,24 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
-var stage1 = getStageSection('normal');
+var stage = getStageSection('normal');
 
 // Default Header section
 var Header = makeHeader({
-	view: {
-			top: 0,
-			width: 'auto',
-			height: 60,
-			backgroundColor: '#dedede'
-}, label: {
-			text: 'Pressão Arterial: ' + stage1.name,
-			width: 'auto',
-			height: 'auto',
-			font: {fontSize: 18},
-			textAlign: 'center',
-			color: '#1A6E73'
-} });
+		view: {
+				top: 0,
+				width: 'auto',
+				height: 60,
+				backgroundColor: '#dedede'
+	}, label: {
+				text: 'Pressão Arterial: ' + stage.name,
+				width: 'auto',
+				height: 'auto',
+				font: {fontSize: 18},
+				textAlign: 'center',
+				color: '#1A6E73'
+	} 
+});
 
 // Default body
 var Body = makeBody({
@@ -78,10 +79,96 @@ var Profile = makeProfileContent({
 		borderRadius: 4,
 		borderWidth: 2,
 		borderColor: '#dedede'
+	}
+});
+
+var Line1 = makeProfileLine({
+	pHeader: {
+		top: 10,
+		backgroundColor: '#334849',
+		width: 260,
+		height: 40,
+		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: '#dedede'
 	},
+	pHeaderLabel: {
+		text: 'Pressão',
+		left: 10,
+		font: {fontSize: 14},
+		color: '#fff'
+	},
+	lIndicator: {
+		right: 5,
+		backgroundColor: '#fff',
+		width: 160,
+		height: 30,
+		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: '#dedede'
+	},
+	liLabel: {
+		text: 'sistólica',
+		width: 'auto',
+		height: 'auto',
+		color: '#1A6E73',
+		left: 8
+	},
+	riLabel: {
+		text: 'teste',
+		width: 'auto',
+		height: 'auto',
+		color: '#1A6E73',
+		right: 8
+	}
+});
+
+var Line2 = makeProfileLine({
+	pHeader: {
+		top: 55,
+		backgroundColor: '#334849',
+		width: 260,
+		height: 40,
+		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: '#dedede'
+	},
+	pHeaderLabel: {
+		text: 'Pressão',
+		left: 10,
+		font: {fontSize: 14},
+		color: '#fff'
+	},
+	lIndicator: {
+		right: 5,
+		backgroundColor: '#fff',
+		width: 160,
+		height: 30,
+		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: '#dedede'
+	},
+	liLabel: {
+		text: 'diastólica',
+		width: 'auto',
+		height: 'auto',
+		color: '#1A6E73',
+		left: 8
+	},
+	riLabel: {
+		text: 'teste',
+		width: 'auto',
+		height: 'auto',
+		color: '#1A6E73',
+		right: 8
+	}
 });
 
 // Body content part - Start
+
+// Profile add lines
+Profile.add(Line1);
+Profile.add(Line2);
 
 // Add description head to body
 Body.add(Description.frame);
