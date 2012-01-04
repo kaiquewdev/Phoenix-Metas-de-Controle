@@ -6,6 +6,8 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
+var stage1 = getStageSection('normal');
+
 // Default Header section
 var Header = makeHeader({
 	view: {
@@ -14,7 +16,7 @@ var Header = makeHeader({
 			height: 60,
 			backgroundColor: '#dedede'
 }, label: {
-			text: 'Pressão Arterial: ' + thisWin.stage.that.name,
+			text: 'Pressão Arterial: ' + stage1.name,
 			width: 'auto',
 			height: 'auto',
 			font: {fontSize: 18},
