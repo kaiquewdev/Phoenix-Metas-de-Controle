@@ -165,14 +165,21 @@ var Line2 = makeProfileLine({
 	}
 });
 
+var Line3 = makeProfileLine({
+	pHeader: {
+		top: 115,
+		width: 260,
+		height: 60,
+		backgroundColor: '#334849'
+	}
+});
+
 // Body content part - Start
 
 // Profile add lines
 Profile.add(Line1.header);
 Profile.add(Line2.header);
-
-Ti.API.info(Line1.label.text);
-Ti.API.info(Line2.label.text);
+Profile.add(Line3.header);
 
 // Add description head to body
 Body.add(Description.frame);
