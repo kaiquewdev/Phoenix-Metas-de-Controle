@@ -12,7 +12,7 @@ function makeHeader ( options ) {
 
 function makeBody ( options ) {
 	// Set a default content in the description header
-	if ( typeof options != undefined ) {
+	if ( typeof options !== undefined ) {
 		var view = Ti.UI.createView( options.view );
 
 		return view;
@@ -22,10 +22,10 @@ function makeBody ( options ) {
 function makeDescriptionHeader ( options ) {
 	// Create a default header of description
 	if ( typeof options !== undefined ) {
-		var frame = Ti.UI.createView(options.view),
-			titleView = Ti.UI.createView(options.tView),
-			titleLabel = Ti.UI.createLabel(options.tTitle),
-			pickerView = Ti.UI.createView(options.pView),
+		var frame = Ti.UI.createView( options.view ),
+			titleView = Ti.UI.createView( options.tView ),
+			titleLabel = Ti.UI.createLabel( options.tLabel ),
+			pickerView = Ti.UI.createView( options.pView ),
 			picker = Ti.UI.createPicker(),
 			pickerData = [];
 			
@@ -50,13 +50,27 @@ function makeDescriptionHeader ( options ) {
 			// Add picker in the view
 			frame.add(pickerView);
 
-			return frame
+			return { 
+				frame: frame,
+				picker: picker
+			}
 	}
 }
 
 function makeProfileContent ( options ) {
 	// Create a profile content to show informations
-	if ( typeof options != undefined ) {
-		
+	if ( typeof options !== undefined ) {
+		var view = Ti.UI.createView( options.view );
+
+		return view;
+	}
+}
+
+function getSelection ( el ) {
+	// return a row element of el
+	if ( typeof el !== undefined ) {
+		el.addEventListener('change', function (e) {
+			return e.row;
+		});
 	}
 }

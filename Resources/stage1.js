@@ -6,6 +6,7 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
+// Default Header section
 var Header = makeHeader({
 	view: {
 			top: 0,
@@ -13,7 +14,7 @@ var Header = makeHeader({
 			height: 60,
 			backgroundColor: '#dedede'
 }, label: {
-			text: 'Pressão Arterial',
+			text: 'Pressão Arterial: ' + thisWin.stage.that.name,
 			width: 'auto',
 			height: 'auto',
 			font: {fontSize: 18},
@@ -21,6 +22,7 @@ var Header = makeHeader({
 			color: '#1A6E73'
 } });
 
+// Default body
 var Body = makeBody({
 	view: {
 		top: 60,
@@ -29,12 +31,14 @@ var Body = makeBody({
 	}
 });
 
+// Options for the factors
 var setOptions = [
 	'Doença cardiovascular', 
 	'3 ou mais fatores de risco', 
 	'1 a 2 fatores de risco',
 	'Sem fator de risco']
 
+// Description model
 var Description = makeDescriptionHeader({
 	view: {
 		top: 10,
@@ -50,7 +54,7 @@ var Description = makeDescriptionHeader({
 		width: 'auto',
 		height: 40
 	},
-	tTitle: {
+	tLabel: {
 		text: 'Fator:',
 		font: {fontSize: 18},
 		color: '#1A6E73'
@@ -63,17 +67,25 @@ var Description = makeDescriptionHeader({
 	sets: setOptions
 });
 
-//var Profile = makeProfileContent({
-//	view: {},
-//});
+var Profile = makeProfileContent({
+	view: {
+		top: 135,
+		backgroundColor: '#fff',
+		width: 280,
+		height: 200,
+		borderRadius: 4,
+		borderWidth: 2,
+		borderColor: '#dedede'
+	},
+});
 
 // Body content part - Start
 
 // Add description head to body
-Body.add(Description);
+Body.add(Description.frame);
 
 // Add profile structure to body
-//Body.add(Profile);
+Body.add(Profile);
 
 // Body content part - End
 
