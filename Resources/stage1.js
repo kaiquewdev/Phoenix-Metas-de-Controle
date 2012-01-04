@@ -82,6 +82,13 @@ var Profile = makeProfileContent({
 	}
 });
 
+//Description.picker.addEventListener('change', function (e) {
+//			numeration = getPattern(e.row.title, stage.pattern);
+//
+//			Ti.API.info('Numeration: ');
+//			Ti.API.info(numeration);
+//});
+
 var Line1 = makeProfileLine({
 	pHeader: {
 		top: 10,
@@ -115,7 +122,7 @@ var Line1 = makeProfileLine({
 		left: 8
 	},
 	riLabel: {
-		text: 'teste',
+		text: '< ',
 		width: 'auto',
 		height: 'auto',
 		color: '#1A6E73',
@@ -156,7 +163,7 @@ var Line2 = makeProfileLine({
 		left: 8
 	},
 	riLabel: {
-		text: 'teste',
+		text: '< ',
 		width: 'auto',
 		height: 'auto',
 		color: '#1A6E73',

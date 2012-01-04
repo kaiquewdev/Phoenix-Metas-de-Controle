@@ -1,16 +1,32 @@
 Logfile initialized
 [INFO] logfile = C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build.log
-[DEBUG] C:\Users\Giuliana\AppData\Roaming\Titanium\mobilesdk\win32\1.8.0.1\android\builder.py simulator Phoenix Metas de Controle C:\Program Files (x86)\Android\android-sdk C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle br.com.test.phoenixmetasdecontrole 4 HVGA
+[DEBUG] C:\Users\Giuliana\AppData\Roaming\Titanium\mobilesdk\win32\1.8.0.1\android\builder.py simulator Phoenix Metas de Controle C:\Program Files (x86)\Android\android-sdk C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle br.com.test.phoenixmetasdecontrole 5 HVGA
 [INFO] Building Phoenix Metas de Controle for Android ... one moment
 [INFO] Titanium SDK version: 1.8.0.1 (12/22/11 13:09 fbdc96f)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.029000 seconds on emulator to get ready
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 30 seconds)
+[DEBUG] waited 30.849000 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 30 seconds)
+[DEBUG] waited 30.509000 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
+[INFO] Installing application on device
 [DEBUG] br.com.test.phoenixmetasdecontrole installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\stage1.js => C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build\android\bin\assets\Resources\stage1.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\android\images\res-long-land-hdpi\default.png
@@ -28,3 +44,7 @@ Logfile initialized
 [INFO] Launching application ... Phoenix Metas de Controle
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=br.com.test.phoenixmetasdecontrole/.PhoenixMetasDeControleActivity }
 
+[INFO] Launching application ... Phoenix Metas de Controle
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=br.com.test.phoenixmetasdecontrole/.PhoenixMetasDeControleActivity }
+
+[INFO] Deployed Phoenix Metas de Controle ... Application should be running.

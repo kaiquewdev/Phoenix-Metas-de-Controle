@@ -85,7 +85,10 @@ function makeProfileLine ( options ) {
 	profileHeader.add(leftIndicator);
 
 	// Add profile header in the main view
-	return profileHeader;
+	return {
+		header: profileHeader,
+		label: rightIndicatorLabel
+	};
 }
 
 function getStageSection ( section ) {
@@ -163,11 +166,23 @@ function getStageSection ( section ) {
 	}
 }
 
-function getSelection ( el ) {
-	// return a row element of el
-	if ( typeof el !== undefined ) {
-		el.addEventListener('change', function (e) {
-			return e.row;
-		});
+function getPattern( el , list ) {
+	if ( typeof el !== undefined && typeof list !== undefined ) {
+
+		for ( var i = 0; i <= list.length; i++ ) {
+			if ( isPattern(el, list[i].name) ) {
+				return list[i].pressure;
+			}
+		}
+	}
+}
+
+function isPattern ( pattern, element ) {
+	if ( typeof pattern === 'string' && typeof element === 'string' ) {
+		if ( element.indexOf(pattern) > -1 ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
