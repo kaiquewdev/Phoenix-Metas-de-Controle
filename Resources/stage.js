@@ -75,7 +75,7 @@ var Profile = makeProfileContent({
 		top: 135,
 		backgroundColor: '#fff',
 		width: 280,
-		height: 200,
+		height: 185,
 		borderRadius: 4,
 		borderWidth: 2,
 		borderColor: '#dedede'
@@ -218,6 +218,15 @@ var RightFrameFlag = makeFrameFlag({
 	}
 });
 
+var flags = {
+	width: 125,
+	height: 30,
+	color: ['#fff', '#5c5c5c'],
+	bgColor: ['#fff'],
+	textAlign: 'center',
+	font: {fontSize: 13}
+};
+
 var Risks = makeFlag({
 	view: {
 		top: 0,
@@ -228,48 +237,53 @@ var Risks = makeFlag({
 	},
 	flag1: {
 		top:0,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: 'Risco Muito Alto',
 		backgroundColor: '#a60808',
-		color: '#fff',
-		textAlign: 'center'
+		font: flags.font,
+		color: flags.color[0],
+		textAlign: flags.textAlign
 	},
 	flag2: {
 		top:33,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: 'Risco Alto',
 		backgroundColor: '#e28602',
-		color: '#fff',
-		textAlign: 'center'
+		font: flags.font,
+		color: flags.color[0],
+		textAlign: flags.textAlign,
 	},
 	flag3: {
 		top:66,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: 'Risco médio',
 		backgroundColor: '#f9c614',
-		color: '#fff',
-		textAlign: 'center'
+		font: flags.font,
+		color: flags.color[0],
+		textAlign: flags.textAlign,
 	},
 	flag4: {
 		top:99,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: 'Risco Baixo',
 		backgroundColor: '#18c7d2',
-		color: '#fff',
-		textAlign: 'center'
+		font: flags.font,
+		color: flags.color[0],
+		textAlign: flags.textAlign,
 	},
 	flag5: {
 		top:132,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: 'Sem risco adicional',
 		backgroundColor: '#089be7',
-		color: '#fff',
-		textAlign: 'center'
+		font: flags.font,
+		color: flags.color[0],
+		textAlign: flags.textAlign,
 	}
 });
 
@@ -279,52 +293,57 @@ var Goals = makeFlag({
 		left: 0,
 		width: 125,
 		height: 160,
-		backgroundColor: '#fff'
+		backgroundColor: flags.bgColor[0]
 	},
 	flag1: {
 		top:0,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: stage.pattern[0].goal,
-		backgroundColor: '#fff',
-		color: '#5c5c5c',
-		textAlign: 'center'
+		backgroundColor: flags.bgColor[0],
+		font: flags.font,
+		color: flags.color[1],
+		textAlign: flags.textAlign,
 	},
 	flag2: {
 		top:33,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: stage.pattern[1].goal,
-		backgroundColor: '#fff',
-		color: '#000',
-		textAlign: 'center'
+		backgroundColor: flags.bgColor[0],
+		font: flags.font,
+		color: flags.color[1],
+		textAlign: flags.textAlign,
 	},
 	flag3: {
 		top:66,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: stage.pattern[2].goal,
-		backgroundColor: '#fff',
-		color: '#000',
-		textAlign: 'center'
+		backgroundColor: flags.bgColor[0],
+		font: flags.font,
+		color: flags.color[1],
+		textAlign: flags.textAlign,
 	},
 	flag4: {
 		top:99,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: stage.pattern[3].goal,
-		backgroundColor: '#fff',
-		color: '#000',
-		textAlign: 'center'
+		backgroundColor: flags.bgColor[0],
+		font: flags.font,
+		color: flags.color[1],
+		textAlign: flags.textAlign,
 	},
 	flag5: {
 		top:132,
-		width: 125,
-		height: 30,
+		width: flags.width,
+		height: flags.height,
 		text: stage.pattern[4].goal,
-		backgroundColor: '#fff',
-		color: '#000',
-		textAlign: 'center'
+		backgroundColor: flags.bgColor[0],
+		font: flags.font,
+		color: flags.color[1],
+		textAlign: flags.textAlign,
 	}
 });
 

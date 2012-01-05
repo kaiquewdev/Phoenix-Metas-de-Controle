@@ -2,7 +2,8 @@
 Titanium.UI.setBackgroundColor('#14ADB5');
 
 var win = Ti.UI.createWindow({
-	url: 'stage1.js',
+	//url: 'stage.js',
+	url: 'menu.js',
 });
 
 // Open the main window
