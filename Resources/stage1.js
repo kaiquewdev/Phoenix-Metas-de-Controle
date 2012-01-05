@@ -285,7 +285,7 @@ var Goals = makeFlag({
 		top:0,
 		width: 125,
 		height: 30,
-		text: 'Test 1',
+		text: stage.pattern[0].goal,
 		backgroundColor: '#fff',
 		color: '#5c5c5c',
 		textAlign: 'center'
@@ -294,7 +294,7 @@ var Goals = makeFlag({
 		top:33,
 		width: 125,
 		height: 30,
-		text: 'Test 2',
+		text: stage.pattern[1].goal,
 		backgroundColor: '#fff',
 		color: '#000',
 		textAlign: 'center'
@@ -303,7 +303,7 @@ var Goals = makeFlag({
 		top:66,
 		width: 125,
 		height: 30,
-		text: 'Test 3',
+		text: stage.pattern[2].goal,
 		backgroundColor: '#fff',
 		color: '#000',
 		textAlign: 'center'
@@ -312,7 +312,7 @@ var Goals = makeFlag({
 		top:99,
 		width: 125,
 		height: 30,
-		text: 'Test 4',
+		text: stage.pattern[3].goal,
 		backgroundColor: '#fff',
 		color: '#000',
 		textAlign: 'center'
@@ -321,10 +321,57 @@ var Goals = makeFlag({
 		top:132,
 		width: 125,
 		height: 30,
-		text: 'Test 5',
+		text: stage.pattern[4].goal,
 		backgroundColor: '#fff',
 		color: '#000',
 		textAlign: 'center'
+	}
+});
+
+var riskPosition = [{
+	level: 'very-high',
+	position: 0
+}, {
+	level: 'high',
+	position: -33
+}, {
+	level: 'medium',
+	position: -66
+}, {
+	level: 'low',
+	position: -99
+}, {
+	level: 'no-risk',
+	position: -132
+}];
+
+
+//Define a default risk
+for ( var i = 0; i <= riskPosition.length; i++ ) {
+	if ( i < riskPosition.length ) {
+		if ( riskPosition[i].level === stage.pattern[0].risk ) {
+			Risks.top = riskPosition[i].position;
+		}
+	}
+}
+
+// Define a risk by selection
+Description.picker.addEventListener('change', function ( e ) {
+	var rowName = e.row.title,
+		list = stage.pattern;
+
+	for (var i = 0; i <= list.length; i++ ) {
+		if ( i < list.length ) {
+			if ( isPattern(rowName, list[i].name) ) {
+				for ( var j = 0; j <= riskPosition.length; j++ ) {
+					if ( j < riskPosition.length ) {
+						if ( list[i].risk == riskPosition[j].level ) {
+							Risks.animate({top: riskPosition[j].position, duration: 700});
+						}
+					}
+				}
+			}
+		}
 	}
 });
 

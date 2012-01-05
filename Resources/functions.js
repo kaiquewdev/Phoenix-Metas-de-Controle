@@ -112,6 +112,7 @@ function makeFlag ( options ) {
 	view.add(flag1);
 
 	return view;
+	
 }
 
 function makeLabel ( options ) {
@@ -140,22 +141,27 @@ function getStageSection ( section ) {
 									name: 'Doença cardiovascular',
 									pressure: [130, 85],
 									risk: 'high',
-									goal: 130 + '/' + 85 +' mmHg'
+									goal: '< ' + 130 + '/' + 85 +' mmHg'
 								}, {
 									id: 2,
 									name: '3 ou mais fatores de risco ou lesão de órgãos-alvo ou diabetes melitus',
 									risk: 'medium',
-									goal: 140 + '/' + 90 +' mmHg'
+									goal: '< ' + 140 + '/' + 90 +' mmHg'
 								}, {
 									id: 3,
 									name: '1 a 2 fatores de risco',
 									risk: 'low',
-									goal: 130 + '/' + 85 +' mmHg'
+									goal: '< ' + 130 + '/' + 85 +' mmHg'
 								}, {
 									id: 4,
 									name: 'Sem fator de risco',
 									risk: 'no-risk',
 									goal: 'Manter nível da PA atual'
+								}, {
+									id: '',
+									name: '',
+									risk: '',
+									goal: ''
 								}],
 							}
 						};
