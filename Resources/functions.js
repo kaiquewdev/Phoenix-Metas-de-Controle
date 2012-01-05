@@ -112,7 +112,7 @@ function makeFlag ( options ) {
 	view.add(flag1);
 
 	return view;
-	
+
 }
 
 function makeLabel ( options ) {
@@ -129,8 +129,9 @@ function makeFrameFlag ( options ) {
 
 function getStageSection ( section ) {
 	if ( typeof section !== undefined ) {
-		var sections = {
-							profile1: {
+		
+		var sections = [{
+							profile: {
 								id: 1,
 								name: 'Normal',
 								file: 'stage' + 1 + '.js',
@@ -141,7 +142,7 @@ function getStageSection ( section ) {
 									name: 'Doença cardiovascular',
 									pressure: [130, 85],
 									risk: 'high',
-									goal: '< ' + 130 + '/' + 85 +' mmHg'
+									goal: '< ' + 130 + '/' + 85 +' mmHg',
 								}, {
 									id: 2,
 									name: '3 ou mais fatores de risco ou lesão de órgãos-alvo ou diabetes melitus',
@@ -164,10 +165,14 @@ function getStageSection ( section ) {
 									goal: ''
 								}],
 							}
-						};
-		
-		if ( section === 'normal' || section === 1 ) {
-			return sections.profile1;
+						}];
+
+		for ( var i = 0; i <= sections.length; i++ ) {
+			if ( i < sections.length ) {
+				if ( section === sections[i].profile.id) {
+					return sections[i].profile;
+				}
+			}
 		}
 	}
 }

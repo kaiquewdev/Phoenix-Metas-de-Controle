@@ -10,6 +10,7 @@ Logfile initialized
 [DEBUG] br.com.test.phoenixmetasdecontrole installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
+[TRACE] COPYING MODIFIED FILE: C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\functions.js => C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build\android\bin\assets\Resources\functions.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\stage1.js => C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build\android\bin\assets\Resources\stage1.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables

@@ -6,7 +6,7 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
-var stage = getStageSection('normal');
+var stage = getStageSection(1);
 
 // Default Header section
 var Header = makeHeader({
@@ -328,29 +328,29 @@ var Goals = makeFlag({
 	}
 });
 
-var riskPosition = [{
+var positions = [{
 	level: 'very-high',
-	position: 0
+	risk: 0
 }, {
 	level: 'high',
-	position: -33
+	risk: -33
 }, {
 	level: 'medium',
-	position: -66
+	risk: -66
 }, {
 	level: 'low',
-	position: -99
+	risk: -99
 }, {
 	level: 'no-risk',
-	position: -132
+	risk: -132
 }];
 
 
 //Define a default risk
-for ( var i = 0; i <= riskPosition.length; i++ ) {
-	if ( i < riskPosition.length ) {
-		if ( riskPosition[i].level === stage.pattern[0].risk ) {
-			Risks.top = riskPosition[i].position;
+for ( var i = 0; i <= positions.length; i++ ) {
+	if ( i < positions.length ) {
+		if ( positions[i].level === stage.pattern[0].risk ) {
+			Risks.top = positions[i].position;
 		}
 	}
 }
@@ -363,10 +363,11 @@ Description.picker.addEventListener('change', function ( e ) {
 	for (var i = 0; i <= list.length; i++ ) {
 		if ( i < list.length ) {
 			if ( isPattern(rowName, list[i].name) ) {
-				for ( var j = 0; j <= riskPosition.length; j++ ) {
-					if ( j < riskPosition.length ) {
-						if ( list[i].risk == riskPosition[j].level ) {
-							Risks.animate({top: riskPosition[j].position, duration: 700});
+				for ( var j = 0; j <= positions.length; j++ ) {
+					if ( j < positions.length ) {
+						if ( list[i].risk == positions[j].level ) {
+							Risks.animate({top: positions[j].risk, duration: 700});
+							Goals.animate({top: positions[i].risk, duration: 700});
 						}
 					}
 				}
