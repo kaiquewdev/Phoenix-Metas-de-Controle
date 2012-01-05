@@ -91,6 +91,41 @@ function makeProfileLine ( options ) {
 	};
 }
 
+function makeFlag ( options ) {
+	// Create a flag indicator for project
+	var view = Ti.UI.createView( options.view ),
+		flag1 = Ti.UI.createLabel( options.flag1 ),
+		flag2 = Ti.UI.createLabel( options.flag2 ),
+		flag3 = Ti.UI.createLabel( options.flag3 ),
+		flag4 = Ti.UI.createLabel( options.flag4 ),
+		flag5 = Ti.UI.createLabel( options.flag5 );
+
+	// Very High
+	view.add(flag5);
+	// High
+	view.add(flag4);
+	// Medium
+	view.add(flag3);
+	// Low
+	view.add(flag2);
+	// No Risk
+	view.add(flag1);
+
+	return view;
+}
+
+function makeLabel ( options ) {
+	var label = Ti.UI.createLabel( options.titleFlag );
+
+	return label;
+}
+
+function makeFrameFlag ( options ) {
+	var view = Ti.UI.createView( options.view );
+
+	return view
+}
+
 function getStageSection ( section ) {
 	if ( typeof section !== undefined ) {
 		var sections = {

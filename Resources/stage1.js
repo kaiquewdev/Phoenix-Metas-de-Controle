@@ -14,7 +14,7 @@ var Header = makeHeader({
 				top: 0,
 				width: 'auto',
 				height: 60,
-				backgroundColor: '#dedede'
+				backgroundColor: '#fff'
 	}, label: {
 				text: 'Pressão Arterial: ' + stage.name,
 				width: 'auto',
@@ -169,12 +169,174 @@ var Line3 = makeProfileLine({
 	pHeader: {
 		top: 115,
 		width: 260,
-		height: 60,
-		backgroundColor: '#334849'
+		height: 60
+	}
+});
+
+var LeftTitleFrameFlag = makeLabel({
+	titleFlag: {
+		top: 0,
+		left: 0,
+		text: 'Risco cardiovascular',
+		width: 125,
+		height: 30,
+		font: {fontSize: 12},
+		textAlign: 'center',
+		color: '#1A6E73'
+	}
+});
+
+var RightTitleFrameFlag = makeLabel({
+	titleFlag: {
+		top: 0,
+		right: 0,
+		text: 'Meta (no mínimo)',
+		width: 125,
+		height: 30,
+		font: {fontSize: 12},
+		textAlign: 'center',
+		color: '#1A6E73'
+	}
+});
+
+
+var LeftFrameFlag = makeFrameFlag({
+	view: {
+		bottom: 0,
+		left: 0,
+		width: 125,
+		height: 30
+	}
+});
+
+var RightFrameFlag = makeFrameFlag({
+	view: {
+		bottom: 0,
+		right: 0,
+		width: 125,
+		height: 30
+	}
+});
+
+var Risks = makeFlag({
+	view: {
+		top: 0,
+		left: 0,
+		width: 125,
+		height: 160,
+		backgroundColor: '#fff'
+	},
+	flag1: {
+		top:0,
+		width: 125,
+		height: 30,
+		text: 'Risco Muito Alto',
+		backgroundColor: '#a60808',
+		color: '#fff',
+		textAlign: 'center'
+	},
+	flag2: {
+		top:33,
+		width: 125,
+		height: 30,
+		text: 'Risco Alto',
+		backgroundColor: '#e28602',
+		color: '#fff',
+		textAlign: 'center'
+	},
+	flag3: {
+		top:66,
+		width: 125,
+		height: 30,
+		text: 'Risco médio',
+		backgroundColor: '#f9c614',
+		color: '#fff',
+		textAlign: 'center'
+	},
+	flag4: {
+		top:99,
+		width: 125,
+		height: 30,
+		text: 'Risco Baixo',
+		backgroundColor: '#18c7d2',
+		color: '#fff',
+		textAlign: 'center'
+	},
+	flag5: {
+		top:132,
+		width: 125,
+		height: 30,
+		text: 'Sem risco adicional',
+		backgroundColor: '#089be7',
+		color: '#fff',
+		textAlign: 'center'
+	}
+});
+
+var Goals = makeFlag({
+	view: {
+		top: 0,
+		left: 0,
+		width: 125,
+		height: 160,
+		backgroundColor: '#fff'
+	},
+	flag1: {
+		top:0,
+		width: 125,
+		height: 30,
+		text: 'Test 1',
+		backgroundColor: '#fff',
+		color: '#5c5c5c',
+		textAlign: 'center'
+	},
+	flag2: {
+		top:33,
+		width: 125,
+		height: 30,
+		text: 'Test 2',
+		backgroundColor: '#fff',
+		color: '#000',
+		textAlign: 'center'
+	},
+	flag3: {
+		top:66,
+		width: 125,
+		height: 30,
+		text: 'Test 3',
+		backgroundColor: '#fff',
+		color: '#000',
+		textAlign: 'center'
+	},
+	flag4: {
+		top:99,
+		width: 125,
+		height: 30,
+		text: 'Test 4',
+		backgroundColor: '#fff',
+		color: '#000',
+		textAlign: 'center'
+	},
+	flag5: {
+		top:132,
+		width: 125,
+		height: 30,
+		text: 'Test 5',
+		backgroundColor: '#fff',
+		color: '#000',
+		textAlign: 'center'
 	}
 });
 
 // Body content part - Start
+LeftFrameFlag.add(Risks);
+RightFrameFlag.add(Goals);
+
+Line3.header.add(LeftTitleFrameFlag);
+Line3.header.add(RightTitleFrameFlag);
+
+Line3.header.add(LeftFrameFlag);
+Line3.header.add(RightFrameFlag);
 
 // Profile add lines
 Profile.add(Line1.header);
