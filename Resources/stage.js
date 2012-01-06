@@ -6,7 +6,7 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
-var stage = getStageSection(3);
+var stage = getStageSection(1);
 
 // Default Header section
 var Header = makeHeader({
@@ -16,7 +16,7 @@ var Header = makeHeader({
 				height: 60,
 				backgroundColor: '#fff'
 	}, label: {
-				text: 'Pressão Arterial: ' + stage.name,
+				text: 'Logo',
 				width: 'auto',
 				height: 'auto',
 				font: {fontSize: 16},
@@ -47,7 +47,7 @@ var Description = makeDescriptionHeader({
 		top: 10,
 		backgroundColor: '#fff',
 		width: 280,
-		height: 115,
+		height: 300,
 		borderRadius: 4,
 		borderWidth: 2,
 		borderColor: '#dedede'
@@ -70,7 +70,7 @@ var Description = makeDescriptionHeader({
 	sets: setOptions
 });
 
-var Profile = makeProfileContent({
+/*var Profile = makeProfileContent({
 	view: {
 		top: 135,
 		backgroundColor: '#fff',
@@ -408,13 +408,13 @@ Line3.header.add(RightFrameFlag);
 // Profile add lines
 Profile.add(Line1.header);
 Profile.add(Line2.header);
-Profile.add(Line3.header);
+Profile.add(Line3.header);*/
 
 // Add description head to body
 Body.add(Description.frame);
 
 // Add profile structure to body
-Body.add(Profile);
+//Body.add(Profile);
 
 // Body content part - End
 
