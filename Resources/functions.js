@@ -136,16 +136,14 @@ function makeFrameFlag ( options ) {
 
 function makeTableMenu( options ) {
 	if ( typeof options !== undefined ) {
-		var table = Ti.UI.createTableView( options );
-
+		var table = Ti.UI.createTableView( options.table );
+		
 		return table;
 	}
 }
 
-function getStageSection ( section ) {
-	if ( typeof section !== undefined ) {
-		
-		var sections = [{
+function getSections () {
+	return [{
 							profile: {
 								id: 1,
 								name: 'Normal',
@@ -244,8 +242,79 @@ function getStageSection ( section ) {
 									goal: ''
 								}],
 							}
+						}, {
+							profile: {
+								id: 4,
+								name: 'Hipertensão Estágio 2',
+								pressure: ['< 160-179', '< 100-109'],
+								pattern:
+								[{
+									id: 1,
+									name: 'Doença cardiovascular',
+									risk: 'very-high',
+									goal: '< 130/80 mmHg',
+								}, {
+									id: 2,
+									name: '3 ou mais fatores de risco ou lesão de órgãos-alvo ou diabetes melitus',
+									risk: 'high',
+									goal: '< 130/85 mmHg'
+								}, {
+									id: 3,
+									name: '1 a 2 fatores de risco',
+									risk: 'medium',
+									goal: '< 140/90 mmHg'
+								}, {
+									id: 4,
+									name: 'Sem fator de risco',
+									risk: 'medium',
+									goal: '< 140/90 mmHg'
+								}, {
+									id: '',
+									name: '',
+									risk: '',
+									goal: ''
+								}],
+							}
+						}, {
+							profile: {
+								id: 5,
+								name: 'Hipertensão Estágio 3',
+								pressure: ['>= 180', '>= 110'],
+								pattern:
+								[{
+									id: 1,
+									name: 'Doença cardiovascular',
+									risk: 'very-high',
+									goal: '< 130/80 mmHg',
+								}, {
+									id: 2,
+									name: '3 ou mais fatores de risco ou lesão de órgãos-alvo ou diabetes melitus',
+									risk: 'very-high',
+									goal: '< 130/80 mmHg'
+								}, {
+									id: 3,
+									name: '1 a 2 fatores de risco',
+									risk: 'very-high',
+									goal: '< 130/80 mmHg'
+								}, {
+									id: 4,
+									name: 'Sem fator de risco',
+									risk: 'high',
+									goal: '< 130/85 mmHg'
+								}, {
+									id: '',
+									name: '',
+									risk: '',
+									goal: ''
+								}],
+							}
 						}];
+}
 
+function getStageSection ( section ) {
+	var sections = getSections();
+
+	if ( typeof section !== undefined ) {
 		for ( var i = 0; i <= sections.length; i++ ) {
 			if ( i < sections.length ) {
 				if ( section === sections[i].profile.id) {
@@ -253,8 +322,6 @@ function getStageSection ( section ) {
 				}
 			}
 		}
-	} else {
-		return sections;
 	}
 }
 

@@ -6,7 +6,10 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
-var stage = getStageSection(3);
+var stage = getStageSection(thisWin.stageId);
+
+Ti.API.info(stage);
+Ti.API.info(stage[0]);
 
 // Default Header section
 var Header = makeHeader({
@@ -19,7 +22,7 @@ var Header = makeHeader({
 				text: 'Pressão Arterial: ' + stage.name,
 				width: 'auto',
 				height: 'auto',
-				font: {fontSize: 16},
+				font: {fontSize: 18},
 				textAlign: 'center',
 				color: '#1A6E73'
 	} 
@@ -116,7 +119,7 @@ var Line1 = makeProfileLine({
 		left: 8
 	},
 	riLabel: {
-		text: stage.pressure[0],
+		text: stage[0].pressure,
 		width: 'auto',
 		height: 'auto',
 		color: '#1A6E73',
@@ -426,3 +429,4 @@ win.add(Body);
 
 // Open the main window
 win.open();
+;

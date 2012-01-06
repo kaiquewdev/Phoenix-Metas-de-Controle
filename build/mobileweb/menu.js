@@ -4,7 +4,7 @@ var thisWin = Ti.UI.currentWindow,
 
 Ti.include('functions.js');
 
-var stage = getSections();
+var stage = getStageSection();
 
 var Header = makeHeader({
 		view: {
