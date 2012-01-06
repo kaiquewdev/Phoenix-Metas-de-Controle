@@ -19,7 +19,7 @@ function makeBody ( options ) {
 	}
 }
 
-function makeDescriptionHeader ( options ) {
+function makeSection ( options ) {
 	// Create a default header of description
 	if ( typeof options !== undefined ) {
 		var frame = Ti.UI.createView( options.view ),

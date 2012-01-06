@@ -42,12 +42,12 @@ var setOptions = [
 	'Sem fator de risco']
 
 // Description model
-var Description = makeDescriptionHeader({
+var Description = makeSection({
 	view: {
 		top: 10,
 		backgroundColor: '#fff',
 		width: 280,
-		height: 300,
+		height: 350,
 		borderRadius: 4,
 		borderWidth: 2,
 		borderColor: '#dedede'
@@ -58,17 +58,25 @@ var Description = makeDescriptionHeader({
 		height: 40
 	},
 	tLabel: {
+		top: 0,
 		text: 'Fator:',
 		font: {fontSize: 18},
-		color: '#1A6E73'
+		color: '#1A6E73',
+		textAlign: 'center'
 	},
 	pView: {
-		top: 50,
+		top: 35,
 		width: 'auto',
-		height: 50
+		height: 40
 	},
 	sets: setOptions
 });
+
+/*var Pressure = makeSection({
+	view: {
+		top:
+	}
+});*/
 
 /*var Profile = makeProfileContent({
 	view: {
