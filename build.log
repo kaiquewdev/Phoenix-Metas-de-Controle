@@ -6,10 +6,11 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.038000 seconds on emulator to get ready
+[DEBUG] waited 0.042000 seconds on emulator to get ready
 [DEBUG] br.com.test.phoenixmetasdecontrole installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
+[TRACE] COPYING MODIFIED FILE: C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\functions.js => C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build\android\bin\assets\Resources\functions.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\Resources\stage.js => C:\Users\Giuliana\My Documents\Titanium Studio Workspace\Phoenix Metas de Controle\build\android\bin\assets\Resources\stage.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables

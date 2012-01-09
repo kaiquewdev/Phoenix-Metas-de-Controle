@@ -1,3 +1,29 @@
+// Built-in function
+String.prototype.deal = function() {
+	var content = this,
+		n = 0,
+		args = arguments;
+
+		for ( var i in args ) {
+			if ( content.search(/\{+[0-9]+\}/) !== -1 ) {
+				content = content.replace( '\{' + i + '\}', args[i] )
+			} if ( content.search( /\{[0-9][:][e][0-9]\}/ ) > -1 ) {
+				n = content.match( /\{[0-9][:][e][0-9]\}/ )
+				n = n[0].replace( '\{'+i+':e', '' )
+				n = n.replace( '\}', '' )
+				n = parseInt(n)
+
+				if ( content.search( '\{'+i+':e'+n+'\}' ) > -1 ) {
+					args[i] = parseFloat(args[i])
+					args[i] = args[i].toFixed(n)
+					content = content.replace( /\{[0-9][:][e][0-9]\}/, args[i] )
+				}
+			}
+		}
+
+		return content;
+}
+
 function makeHeader ( options ) {
 	// Create a Header for the application
 	if ( typeof options !== undefined ) {
@@ -134,11 +160,22 @@ function makeFrameFlag ( options ) {
 	}
 }
 
-function makeTableMenu( options ) {
+function makeTableMenu ( options ) {
 	if ( typeof options !== undefined ) {
 		var table = Ti.UI.createTableView( options.table );
 		
 		return table;
+	}
+}
+
+function makeButton ( options ) {
+	if ( typeof options !== undefined ) {
+		var view = Ti.UI.createView( options.view ),
+			button = Ti.UI.createButton( options.button );
+
+		view.add(button);
+
+		return view;
 	}
 }
 
@@ -309,6 +346,33 @@ function getSections () {
 								}],
 							}
 						}];
+}
+
+function getTranslation ( pattern ) {
+	var dic = [{
+		untrans: 'very-high',
+		translate: 'Risco muito alto'
+	}, {
+		untrans: 'high',
+		translate: 'Risco alto'
+	}, {
+		untrans: 'medium',
+		translate: 'Risco médio'
+	}, {
+		untrans: 'low',
+		translate: 'Risco baixo'
+	}, {
+		untrans: 'no-risk',
+		translate: 'Sem risco adicional'
+	}]
+
+	if ( typeof pattern !== undefined ) {
+		for ( var i = 0; i < dic.length; i++ ) {
+			if ( pattern === dic[i].untrans ) {
+				return dic[i].translate;
+			}
+		}
+	}
 }
 
 function getStageSection ( section ) {

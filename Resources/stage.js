@@ -6,7 +6,7 @@ var thisWin = Ti.UI.currentWindow,
 // Include the functions.js file for a utils functions
 Ti.include('functions.js');
 
-var stage = getStageSection(1);
+var stage = getSections();
 
 // Default Header section
 var Header = makeHeader({
@@ -35,19 +35,19 @@ var Body = makeBody({
 });
 
 // Options for the factors
-var setOptions = [
+var setDescription = [
 	'Doença cardiovascular', 
 	'3 ou mais fatores de risco', 
 	'1 a 2 fatores de risco',
-	'Sem fator de risco']
+	'Sem fator de risco'];
 
-// Description model
+// Factor section
 var Description = makeSection({
 	view: {
-		top: 10,
+		top: 75,
 		backgroundColor: '#fff',
 		width: 280,
-		height: 350,
+		height: 215,
 		borderRadius: 4,
 		borderWidth: 2,
 		borderColor: '#dedede'
@@ -66,11 +66,110 @@ var Description = makeSection({
 	},
 	pView: {
 		top: 35,
+		width: 200,
+		height: 40
+	},
+	sets: setDescription
+});
+
+setPressure = [
+	'{0} - {1}'.deal(stage[0].profile.pressure[0], stage[0].profile.pressure[1]),
+	'{0} - {1}'.deal(stage[1].profile.pressure[0], stage[1].profile.pressure[1]),
+	'{0} - {1}'.deal(stage[2].profile.pressure[0], stage[2].profile.pressure[1]),
+	'{0} - {1}'.deal(stage[3].profile.pressure[0], stage[3].profile.pressure[1]),
+	'{0} - {1}'.deal(stage[4].profile.pressure[0], stage[4].profile.pressure[1]),
+];
+
+// Pressure section
+var Pressure = makeSection({
+	view: {
+		top: 80,
+		width: 280,
+		height: 80
+	},
+	tView: {
+		top: 5,
 		width: 'auto',
 		height: 40
 	},
-	sets: setOptions
+	tLabel: {
+		top: 0,
+		text: 'Pressão: (Sistólica e Diastólica)',
+		font: {fontSize: 18},
+		color: '#1A6E73',
+		textAlign: 'center'
+	},
+	pView: {
+		top: 35,
+		width: 200,
+		height: 40
+	},
+	sets: setPressure
 });
+
+var showResult = makeButton({
+	view: {
+		top: 160,
+		width: 'auto',
+		height: 50
+	}, button: {
+		title: 'Ver resultado',
+		width: 150,
+		height: 40
+	}
+});
+
+var state = {
+	factor: setDescription[0],
+	pressure: setPressure[0]
+};
+
+Description.picker.addEventListener('change', function (e) {
+	state['factor'] = e.row.title;
+});
+
+Pressure.picker.addEventListener('change', function (e) {
+	state['pressure'] = e.row.title;
+});
+
+showResult.addEventListener('click', function () {
+
+	var profile = {};
+
+	for ( var i = 0; i < stage.length; i++ ) {
+		var pressure = '{0} - {1}'.deal(stage[i].profile.pressure[0], stage[i].profile.pressure[1]),
+			pattern;
+
+		if ( state['pressure'] === pressure ) {
+			profile['title'] = stage[i].profile.name;
+			pattern = stage[i].profile.pattern;
+
+			for ( var j = 0; j < pattern.length; j++ ) {
+				if ( isPattern(state.factor, pattern[j].name) ) {
+					profile['risk'] = pattern[j].risk;
+					profile['goal'] = pattern[j].goal;
+				}
+			}
+		}
+	}
+
+	profile.risk = getTranslation(profile.risk);
+
+	alert(
+		'Title: {0} \n\n Risco: {1} \n\n Meta: {2} \n\n'.deal(profile.title, profile.risk, profile.goal)
+	);
+});
+
+// Overlay - start
+var result	= Ti.UI.createWindow({
+		backgroundColor: '#000',
+		zIndex: 9999,
+		opacity: 0.0,
+		visible: false
+});
+
+result.open()
+// Overlay - end
 
 /*var Pressure = makeSection({
 	view: {
@@ -420,6 +519,8 @@ Profile.add(Line3.header);*/
 
 // Add description head to body
 Body.add(Description.frame);
+Description.frame.add(Pressure.frame);
+Description.frame.add(showResult);
 
 // Add profile structure to body
 //Body.add(Profile);
