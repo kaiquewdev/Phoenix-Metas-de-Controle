@@ -48,12 +48,12 @@ function makeBody ( options ) {
 function makeSection ( options ) {
 	// Create a default header of description
 	if ( typeof options !== undefined ) {
-		var frame = Ti.UI.createView( options.view ),
-			titleView = Ti.UI.createView( options.tView ),
-			titleLabel = Ti.UI.createLabel( options.tLabel ),
-			pickerView = Ti.UI.createView( options.pView ),
-			picker = Ti.UI.createPicker(),
-			pickerData = [];
+		var frame = Ti.UI.createView( options.view );
+		var	titleView = Ti.UI.createView( options.tView );
+		var titleLabel = Ti.UI.createLabel( options.tLabel );
+		var pickerView = Ti.UI.createView( options.pView );
+		var picker = Ti.UI.createPicker();
+		var pickerData = [];
 			
 			// Create rows in the picker
 			for ( var i = 0; i <= options.sets.length; i++ ) {
@@ -95,11 +95,11 @@ function makeProfileContent ( options ) {
 function makeProfileLine ( options ) {
 	if ( typeof options !== undefined ) {
 		// Make a line in the profile line
-		var profileHeader = Ti.UI.createView( options.pHeader ),
-			profileHeaderLabel = Ti.UI.createLabel( options.pHeaderLabel),
-			leftIndicator = Ti.UI.createView( options.lIndicator ),
-			leftIndicatorLabel = Ti.UI.createLabel( options.liLabel ),
-			rightIndicatorLabel = Ti.UI.createLabel( options.riLabel );
+		var profileHeader = Ti.UI.createView( options.pHeader );
+		var	profileHeaderLabel = Ti.UI.createLabel( options.pHeaderLabel);
+		var	leftIndicator = Ti.UI.createView( options.lIndicator );
+		var	leftIndicatorLabel = Ti.UI.createLabel( options.liLabel );
+		var	rightIndicatorLabel = Ti.UI.createLabel( options.riLabel );
 
 		// Add label to header of profile
 		profileHeader.add(profileHeaderLabel);
@@ -122,12 +122,12 @@ function makeProfileLine ( options ) {
 function makeFlag ( options ) {
 	if ( typeof options !== undefined ) {
 		// Create a flag indicator for project
-		var view = Ti.UI.createView( options.view ),
-			flag1 = Ti.UI.createLabel( options.flag1 ),
-			flag2 = Ti.UI.createLabel( options.flag2 ),
-			flag3 = Ti.UI.createLabel( options.flag3 ),
-			flag4 = Ti.UI.createLabel( options.flag4 ),
-			flag5 = Ti.UI.createLabel( options.flag5 );
+		var view = Ti.UI.createView( options.view );
+		var	flag1 = Ti.UI.createLabel( options.flag1 );
+		var	flag2 = Ti.UI.createLabel( options.flag2 );
+		var	flag3 = Ti.UI.createLabel( options.flag3 );
+		var	flag4 = Ti.UI.createLabel( options.flag4 );
+		var	flag5 = Ti.UI.createLabel( options.flag5 );
 
 		// Very High
 		view.add(flag5);
@@ -170,8 +170,8 @@ function makeTableMenu ( options ) {
 
 function makeButton ( options ) {
 	if ( typeof options !== undefined ) {
-		var view = Ti.UI.createView( options.view ),
-			button = Ti.UI.createButton( options.button );
+		var view = Ti.UI.createView( options.view );
+		var	button = Ti.UI.createButton( options.button );
 
 		view.add(button);
 
@@ -348,6 +348,20 @@ function getSections () {
 						}];
 }
 
+function getStageSection ( section ) {
+	var sections = getSections();
+
+	if ( typeof section !== undefined ) {
+		for ( var i = 0; i <= sections.length; i++ ) {
+			if ( i < sections.length ) {
+				if ( section === sections[i].profile.id) {
+					return sections[i].profile;
+				}
+			}
+		}
+	}
+}
+
 function getTranslation ( pattern ) {
 	var dic = [{
 		untrans: 'very-high',
@@ -364,26 +378,12 @@ function getTranslation ( pattern ) {
 	}, {
 		untrans: 'no-risk',
 		translate: 'Sem risco adicional'
-	}]
+	}];
 
 	if ( typeof pattern !== undefined ) {
 		for ( var i = 0; i < dic.length; i++ ) {
 			if ( pattern === dic[i].untrans ) {
 				return dic[i].translate;
-			}
-		}
-	}
-}
-
-function getStageSection ( section ) {
-	var sections = getSections();
-
-	if ( typeof section !== undefined ) {
-		for ( var i = 0; i <= sections.length; i++ ) {
-			if ( i < sections.length ) {
-				if ( section === sections[i].profile.id) {
-					return sections[i].profile;
-				}
 			}
 		}
 	}

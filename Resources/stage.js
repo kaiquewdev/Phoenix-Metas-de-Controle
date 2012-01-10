@@ -156,7 +156,7 @@ showResult.addEventListener('click', function () {
 	profile.risk = getTranslation(profile.risk);
 
 	alert(
-		'Title: {0} \n\n Risco: {1} \n\n Meta: {2} \n\n'.deal(profile.title, profile.risk, profile.goal)
+		'{0} \n\n Risco: {1} \n\n Meta: {2} \n\n'.deal(profile.title, profile.risk, profile.goal)
 	);
 });
 
